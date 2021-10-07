@@ -1,0 +1,6 @@
+name: NMSStandAPI
+version: ${project.version}
+main: xyz.raitaki.main
+api-version: 1.16
+commands:
+  packetstand:
