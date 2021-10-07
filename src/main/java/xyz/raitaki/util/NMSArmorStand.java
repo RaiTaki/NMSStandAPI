@@ -154,12 +154,13 @@ public class NMSArmorStand {
         stand = new EntityArmorStand(((CraftWorld) loc.getWorld()).getHandle(), loc.getX(), loc.getY(), loc.getZ());
         stand.setLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch());
 
-
+        //OTHERS
         stand.setSmall(small);
         stand.setMarker(marker);
         stand.setInvisible(visible);
         stand.setArms(arms);
 
+        //PARTS
         stand.setHeadPose(headrotation);
         stand.setLeftArmPose(leftarmrotation);
         stand.setRightArmPose(rightarmrotation);
@@ -167,7 +168,7 @@ public class NMSArmorStand {
         stand.setRightLegPose(rightlegrotation);
         stand.setBodyPose(bodyrotation);
 
-
+        //NAME
         stand.setCustomNameVisible(namevisible);
         stand.setCustomName(new ChatComponentText(this.name));
     }
