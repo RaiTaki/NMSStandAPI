@@ -18,6 +18,22 @@ public class testcommand implements CommandExecutor {
         if (label.equalsIgnoreCase("packetstand")) {
             NMSArmorStand stand = new NMSArmorStand(p.getLocation());
             stand.setInvisible(false);
+            stand.setArms(true);
+            stand.setInvisible(true);
+            stand.setMarker(true);
+            stand.setSmall(true);
+            stand.setCustomName("aaa");
+            stand.setCustomNameVisible(true);
+
+
+            stand.setBodyrotation(new Vector3f(50,50,50));
+            stand.setheadRotation(new Vector3f(50,50,50));
+            stand.setLeftarmrotation(new Vector3f(50,50,50));
+            stand.setLeftlegrotation(new Vector3f(50,50,50));
+            stand.setRightarmrotation(new Vector3f(50,50,50));
+            stand.setRightlegrotation(new Vector3f(50,50,50));
+
+
             stand.spawn();
             stand.display(p.getLocation(), 0D);
         }
