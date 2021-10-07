@@ -4,18 +4,41 @@
 
 Tested on 1.16.5
 
+Maven repo:
+
+```	
+	<repositories>
+            <repository>
+                <id>jitpack.io</id>
+                <url>https://jitpack.io</url>
+            </repository>
+	</repositories>
+	
+	<dependency>
+	    <groupId>com.github.RaiTaki</groupId>
+	    <artifactId>NMSStandAPI</artifactId>
+	    <version>v0.1</version>
+	</dependency>
+```
+
 
 EXAMPLE:
 ```
   NMSArmorStand stand = new NMSArmorStand(p.getLocation()); // Spawn location
+  
+  
   stand.setInvisible(false); 
   stand.setArms(true);
   stand.setInvisible(true);
   stand.setMarker(true);
   stand.setSmall(true);
+  
+  
   stand.setCustomName("aaa");
   stand.setCustomNameVisible(true);
-
+  
+  
+  stand.setEquipment("head", new ItemStack(Material.Iron_Sword)) // mainhand -- offhand -- feet -- legs -- chest -- head
 
   stand.setBodyrotation(new Vector3f(50,50,50)); // Rotation
   stand.setheadRotation(new Vector3f(50,50,50));
