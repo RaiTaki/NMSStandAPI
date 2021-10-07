@@ -69,7 +69,6 @@
     </repositories>
 
     <dependencies>
-
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>

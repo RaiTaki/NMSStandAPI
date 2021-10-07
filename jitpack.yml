@@ -1,0 +1,2 @@
+before_install:
+  - bash ./installspigot.sh 1.16.5
