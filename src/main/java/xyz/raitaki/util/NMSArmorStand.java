@@ -94,6 +94,10 @@ public class NMSArmorStand {
         equipment.add(new Pair<EnumItemSlot, ItemStack>(EnumItemSlot.fromName(slot), CraftItemStack.asNMSCopy(item)));
     }
 
+    public Location getLocation(){
+        return loc;
+    }
+
     public boolean getArms(){
         return arms;
     }
