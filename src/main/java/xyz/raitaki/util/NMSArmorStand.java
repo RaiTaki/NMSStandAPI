@@ -186,22 +186,37 @@ public class NMSArmorStand {
         if(radius > 0){
             for(Entity entity : loc.getWorld().getNearbyEntities(loc, radius, radius, radius)){
                 if(entity instanceof Player){
-                    ((CraftPlayer) entity).getHandle().playerConnection.sendPacket(spawnPacket);
-                    ((CraftPlayer) entity).getHandle().playerConnection.sendPacket(metadataPacket);
+                    CraftPlayer cf = ((CraftPlayer) entity);
+                    cf.getHandle().playerConnection.sendPacket(spawnPacket);
+                    cf.getHandle().playerConnection.sendPacket(metadataPacket);
                     if(item != null) {
-                        ((CraftPlayer) entity).getHandle().playerConnection.sendPacket(equipmentPacket);
+                        cf.getHandle().playerConnection.sendPacket(equipmentPacket);
                     }
                 }
             }
         }
         else{
             for(Player entity : Bukkit.getOnlinePlayers()){
-                ((CraftPlayer) entity).getHandle().playerConnection.sendPacket(spawnPacket);
-                ((CraftPlayer) entity).getHandle().playerConnection.sendPacket(metadataPacket);
+                CraftPlayer cf = ((CraftPlayer) entity);
+                cf.getHandle().playerConnection.sendPacket(spawnPacket);
+                cf.getHandle().playerConnection.sendPacket(metadataPacket);
                 if(item !=null) {
-                    ((CraftPlayer) entity).getHandle().playerConnection.sendPacket(equipmentPacket);
+                    cf.getHandle().playerConnection.sendPacket(equipmentPacket);
                 }
             }
+        }
+    }
+
+    public void displaytoPlayer(Player p){
+        PacketPlayOutSpawnEntityLiving spawnPacket = new PacketPlayOutSpawnEntityLiving(stand);
+        PacketPlayOutEntityMetadata metadataPacket = new PacketPlayOutEntityMetadata(stand.getId(), stand.getDataWatcher(),true);
+        PacketPlayOutEntityEquipment equipmentPacket = new PacketPlayOutEntityEquipment(stand.getId(), equipment);
+        CraftPlayer cf = ((CraftPlayer) p);
+
+        cf.getHandle().playerConnection.sendPacket(spawnPacket);
+        cf.getHandle().playerConnection.sendPacket(metadataPacket);
+        if(item !=null) {
+            cf.getHandle().playerConnection.sendPacket(equipmentPacket);
         }
     }
 
