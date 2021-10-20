@@ -220,6 +220,29 @@ public class NMSArmorStand {
         }
     }
 
+    public void remove(Location loc, double radius){
+        PacketPlayOutEntityDestroy destroy = new PacketPlayOutEntityDestroy(stand.getId());
+
+        if(radius > 0){
+            for(Entity viewer : loc.getWorld().getNearbyEntities(loc,radius, radius, radius)) {
+                if(viewer instanceof Player) {
+                    ((CraftPlayer) viewer).getHandle().playerConnection.sendPacket(destroy);
+                }
+            }
+        }
+        else{
+            for(Player p : Bukkit.getOnlinePlayers()) {
+                ((CraftPlayer) p).getHandle().playerConnection.sendPacket(destroy);
+            }
+        }
+
+    }
+
+    public void removetoP(Player p){
+        PacketPlayOutEntityDestroy destroy = new PacketPlayOutEntityDestroy(stand.getId());
+        ((CraftPlayer) p).getHandle().playerConnection.sendPacket(destroy);
+    }
+
     public void teleport(Location loc, Location radiusloc, Double radius){
         this.loc = loc;
         stand.setLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch());
